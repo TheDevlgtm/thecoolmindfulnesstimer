@@ -1,0 +1,129 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.lifted-box {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lifted-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .bg-white {
+    background-color: #1a1a1a;
+}
+
+.dark-mode .text-gray-500, .dark-mode .text-3xl, .dark-mode .text-6xl, .dark-mode button, .dark-mode a {
+    color: #ecf0f1;
+}
+
+.dark-mode .border-black {
+    border-color: #ecf0f1;
+}
+
+.box-breathing {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    border-radius: 15px;
+    margin: 20px auto;
+    animation: boxBreathing 16s infinite, fadeIn 2s;
+}
+
+.box-breathing::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #000;
+    border-radius: 50%;
+    animation: ballSlide 16s infinite;
+}
+
+.dark-mode .box-breathing {
+    border-color: #ecf0f1;
+}
+
+.dark-mode .box-breathing::before {
+    background-color: #ecf0f1;
+}
+
+/* Animations */
+@keyframes boxBreathing {
+    0%, 25%, 50%, 75%, 100% {
+        width: 200px;
+        height: 200px;
+    }
+    12.5%, 37.5%, 62.5%, 87.5% {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@keyframes ballSlide {
+    0% { top: 0; left: 0; }
+    25% { top: 0; left: 100%; }
+    50% { top: 100%; left: 100%; }
+    75% { top: 100%; left: 0; }
+    100% { top: 0; left: 0; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.moving-animation {
+    animation: move 5s infinite alternate;
+}
+
+@keyframes move {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+}
+
+#volume-control {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #000, #555);
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+    border-radius: 10px;
+}
+
+#volume-control:hover {
+    opacity: 1;
+}
+
+#volume-control::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#volume-control::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
